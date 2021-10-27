@@ -5,6 +5,7 @@
 
 #my stuff
 confidential.py
+data.db
 
 # User-specific files
 *.rsuser

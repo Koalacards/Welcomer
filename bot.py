@@ -6,10 +6,13 @@ from confidential import RUN_ID
 import dbfunc
 import json
 
-guild_ids = [752664024910397522, 876103457407385661]
+guild_ids = [876103457407385661]
 
-client = commands.Bot(".")
-slash = SlashCommand(client, override_type=True)
+intents = discord.Intents.default()
+intents.members = True
+
+client = commands.Bot(".", intents=intents)
+slash = SlashCommand(client, sync_commands=True, override_type=True)
 
 def _create_embed(title, description, colour):
     embed = discord.Embed(title=title, description=description, colour=colour)
@@ -17,7 +20,6 @@ def _create_embed(title, description, colour):
 
 def _get_role_ids_from_str(role_ids:str):
     role_list = json.loads(role_ids)
-    print(f"{role_list}, {type(role_list)}")
     return role_list
 
 set_welcome_channel_options = [
