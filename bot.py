@@ -6,7 +6,7 @@ from confidential import RUN_ID
 import dbfunc
 import json
 
-guild_ids = [876103457407385661]
+#guild_ids = [876103457407385661]
 
 intents = discord.Intents.default()
 intents.members = True
@@ -30,7 +30,7 @@ set_welcome_channel_options = [
         required=True
     )
 ]
-
+  
 role_options = [
     manage_commands.create_option(
         name='role',
@@ -63,7 +63,9 @@ async def on_member_join(member):
         await member.add_roles(welcome_role)
 
 
-@slash.slash(name='set_welcome_channel', guild_ids=guild_ids, description='Set the welcome channel to welcome people to the discord', options=set_welcome_channel_options)
+@slash.slash(name='set_welcome_channel',
+ #guild_ids=guild_ids,
+ description='Set the welcome channel to welcome people to the discord', options=set_welcome_channel_options)
 async def set_welcome_channel(ctx, channel:discord.TextChannel):
     author = ctx.author
     if author.guild_permissions.administrator == True or author.guild_permissions.manage_guild == True:
@@ -81,7 +83,9 @@ async def set_welcome_channel(ctx, channel:discord.TextChannel):
 
         await ctx.send(embed=_create_embed(title, description, colour))
 
-@slash.slash(name='add_welcome_role', guild_ids=guild_ids, description='Add a role to welcome the users with', options=role_options)
+@slash.slash(name='add_welcome_role', 
+#guild_ids=guild_ids, 
+description='Add a role to welcome the users with', options=role_options)
 async def add_welcome_role(ctx, role:discord.Role):
     author = ctx.author
     if author.guild_permissions.administrator == True or author.guild_permissions.manage_guild == True:
@@ -111,7 +115,9 @@ async def add_welcome_role(ctx, role:discord.Role):
 
         await ctx.send(embed=_create_embed(title, description, colour))
 
-@slash.slash(name='remove_welcome_role', guild_ids=guild_ids, description='Remove a role to welcome users with', options=role_options)
+@slash.slash(name='remove_welcome_role', 
+#guild_ids=guild_ids, 
+description='Remove a role to welcome users with', options=role_options)
 async def remove_welcome_role(ctx, role:discord.Role):
     author = ctx.author
     if author.guild_permissions.administrator == True or author.guild_permissions.manage_guild == True:
@@ -140,7 +146,9 @@ async def remove_welcome_role(ctx, role:discord.Role):
 
         await ctx.send(embed=_create_embed(title, description, colour))
 
-@slash.slash(name='set_welcome_message', guild_ids=guild_ids, description="Set the welcome message for the server")
+@slash.slash(name='set_welcome_message', 
+#guild_ids=guild_ids, 
+description="Set the welcome message for the server")
 async def set_welcome_message(ctx, welcome_message:str):
     author = ctx.author
     if author.guild_permissions.administrator == True or author.guild_permissions.manage_guild == True:
