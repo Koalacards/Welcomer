@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
-from confidential import RUN_ID, client_secret
+from confidential import RUN_ID
 import dbfunc
 import json
 
