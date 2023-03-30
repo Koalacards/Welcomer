@@ -1,4 +1,4 @@
-from data import WelcomeData
+from data.dbmodel import WelcomeData
 from peewee import *
 
 def set_channel_id(guild_id:int, channel_id:int):
