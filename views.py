@@ -8,11 +8,15 @@ invite_button = Button(
 )
 
 support_button = Button(
-    label="Support", style=discord.ButtonStyle.url, url="https://discord.gg/5Jn32Upk4M"
+    label="Discord Server",
+    style=discord.ButtonStyle.url,
+    url="https://discord.gg/5Jn32Upk4M",
 )
 
 github_button = Button(
-    label="Github", style=discord.ButtonStyle.url, url="https://github.com/Koalacards/Welcomer"
+    label="Github",
+    style=discord.ButtonStyle.url,
+    url="https://github.com/Koalacards/Welcomer",
 )
 
 url_buttons = [invite_button, support_button, github_button]
